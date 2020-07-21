@@ -1,6 +1,8 @@
-package ir.ac.kntu.cs2d.model.gun;
+package ir.ac.kntu.cs2d.model.armory.gun;
 
-public class Gun {
+import ir.ac.kntu.cs2d.model.GameSide;
+
+public class Gun implements Cloneable {
     private final String name;
     private final int price;
     private final int damage;
@@ -112,5 +114,10 @@ public class Gun {
                 " magCap: " + magCap +
                 " gameSide: " + gameSide +
                 " isPistol: " + isPistol;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

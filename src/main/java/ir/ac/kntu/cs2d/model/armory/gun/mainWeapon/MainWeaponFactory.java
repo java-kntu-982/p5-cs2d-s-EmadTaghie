@@ -1,7 +1,7 @@
-package ir.ac.kntu.cs2d.model.gun.mainWeapon;
+package ir.ac.kntu.cs2d.model.armory.gun.mainWeapon;
 
-import ir.ac.kntu.cs2d.model.gun.GameSide;
-import ir.ac.kntu.cs2d.model.gun.Gun;
+import ir.ac.kntu.cs2d.model.GameSide;
+import ir.ac.kntu.cs2d.model.armory.gun.Gun;
 
 public class MainWeaponFactory {
     public static class Weapons {
