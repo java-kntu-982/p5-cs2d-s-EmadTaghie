@@ -1,7 +1,9 @@
 package ir.ac.kntu.cs2d.model.armory.gun;
 
+import java.util.Objects;
+
 public class Vest implements Cloneable {
-    private double health;
+    private int health;
     private int price;
 
     public Vest(){
@@ -9,11 +11,11 @@ public class Vest implements Cloneable {
         setPrice(1000);
     }
 
-    public double getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(double health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
@@ -28,5 +30,19 @@ public class Vest implements Cloneable {
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vest vest = (Vest) o;
+        return health == vest.health &&
+                price == vest.price;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(health, price);
     }
 }

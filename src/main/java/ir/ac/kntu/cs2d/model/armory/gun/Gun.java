@@ -2,7 +2,10 @@ package ir.ac.kntu.cs2d.model.armory.gun;
 
 import ir.ac.kntu.cs2d.model.GameSide;
 
-public class Gun implements Cloneable {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Gun implements Cloneable, Serializable {
     private final String name;
     private final int price;
     private final int damage;
@@ -11,6 +14,7 @@ public class Gun implements Cloneable {
     private final int magCap;
     private final GameSide gameSide;
     private final boolean isPistol;
+    private int magState;
 
     public static class Builder {
         //Required params
@@ -70,6 +74,19 @@ public class Gun implements Cloneable {
         STR = builder.STR;
         magCap = builder.magCap;
         isPistol = builder.isPistol;
+        setMagState(getMagCap());
+    }
+
+    protected Gun(Gun gun) {
+        name = gun.name;
+        price = gun.price;
+        gameSide = gun.gameSide;
+        damage = gun.damage;
+        MTS = gun.MTS;
+        STR = gun.STR;
+        magCap = gun.magCap;
+        isPistol = gun.isPistol;
+        setMagState(getMagCap());
     }
 
     public String getName() {
@@ -104,6 +121,14 @@ public class Gun implements Cloneable {
         return isPistol;
     }
 
+    public int getMagState() {
+        return magState;
+    }
+
+    public void setMagState(int magState) {
+        this.magState = magState;
+    }
+
     @Override
     public String toString() {
         return "name: " + name +
@@ -117,7 +142,27 @@ public class Gun implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Gun gun = (Gun) o;
+        return price == gun.price &&
+                damage == gun.damage &&
+                MTS == gun.MTS &&
+                Double.compare(gun.STR, STR) == 0 &&
+                magCap == gun.magCap &&
+                isPistol == gun.isPistol &&
+                name.equals(gun.name) &&
+                gameSide == gun.gameSide;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, damage, MTS, STR, magCap, gameSide, isPistol);
     }
 }

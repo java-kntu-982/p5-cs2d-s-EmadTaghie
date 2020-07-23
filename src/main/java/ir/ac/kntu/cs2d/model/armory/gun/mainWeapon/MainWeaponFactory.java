@@ -22,11 +22,11 @@ public class MainWeaponFactory {
         }
 
         public static Gun M4A1() {
-            return new Gun.Builder("M4A1", 3100, GameSide.CS).damage(22).MTS(120).STR(3.1).magCap(30).build();
+            return new Gun.Builder("M4A1", 3100, GameSide.CT).damage(22).MTS(120).STR(3.1).magCap(30).build();
         }
 
         public static Gun Famas() {
-            return new Gun.Builder("Famas", 2250, GameSide.CS).damage(14).MTS(120).STR(3.3).magCap(25).build();
+            return new Gun.Builder("Famas", 2250, GameSide.CT).damage(14).MTS(120).STR(3.3).magCap(25).build();
         }
     }
 }

@@ -11,7 +11,7 @@ public class PistolFactory {
         }
 
         public static Gun makeUSP() {
-            return new Gun.Builder("USP", 500, GameSide.CS).damage(24).
+            return new Gun.Builder("USP", 500, GameSide.CT).damage(24).
                     MTS(340).STR(2.2).magCap(12).isPistol(true).build();
         }
 
