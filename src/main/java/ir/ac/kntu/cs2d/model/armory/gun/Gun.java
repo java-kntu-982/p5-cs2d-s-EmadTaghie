@@ -9,8 +9,8 @@ public class Gun implements Cloneable, Serializable {
     private final String name;
     private final int price;
     private final int damage;
-    private final int MTS;
-    private final double STR;
+    private final int mts;
+    private final double str;
     private final int magCap;
     private final GameSide gameSide;
     private final boolean isPistol;
@@ -24,8 +24,8 @@ public class Gun implements Cloneable, Serializable {
 
         //optional params
         private int damage = 20;
-        private int MTS = 120;
-        private double STR = 2.6;
+        private int mts = 120;
+        private double str = 2.6;
         private int magCap = 25;
         private boolean isPistol = false;
 
@@ -40,13 +40,13 @@ public class Gun implements Cloneable, Serializable {
             return this;
         }
 
-        public Builder MTS(int MTS) {
-            this.MTS = MTS;
+        public Builder mts(int mts) {
+            this.mts = mts;
             return this;
         }
 
-        public Builder STR(double STR) {
-            this.STR = STR;
+        public Builder str(double str) {
+            this.str = str;
             return this;
         }
 
@@ -70,8 +70,8 @@ public class Gun implements Cloneable, Serializable {
         price = builder.price;
         gameSide = builder.gameSide;
         damage = builder.damage;
-        MTS = builder.MTS;
-        STR = builder.STR;
+        mts = builder.mts;
+        str = builder.str;
         magCap = builder.magCap;
         isPistol = builder.isPistol;
         setMagState(getMagCap());
@@ -82,8 +82,8 @@ public class Gun implements Cloneable, Serializable {
         price = gun.price;
         gameSide = gun.gameSide;
         damage = gun.damage;
-        MTS = gun.MTS;
-        STR = gun.STR;
+        mts = gun.mts;
+        str = gun.str;
         magCap = gun.magCap;
         isPistol = gun.isPistol;
         setMagState(getMagCap());
@@ -105,12 +105,12 @@ public class Gun implements Cloneable, Serializable {
         return damage;
     }
 
-    public int getMTS() {
-        return MTS;
+    public int getMts() {
+        return mts;
     }
 
-    public double getSTR() {
-        return STR;
+    public double getStr() {
+        return str;
     }
 
     public int getMagCap() {
@@ -134,8 +134,8 @@ public class Gun implements Cloneable, Serializable {
         return "name: " + name +
                 " price: " + price +
                 " damage: " + damage +
-                " MTS: " + MTS +
-                " STR: " + STR +
+                " MTS: " + mts +
+                " STR: " + str +
                 " magCap: " + magCap +
                 " gameSide: " + gameSide +
                 " isPistol: " + isPistol;
@@ -148,13 +148,17 @@ public class Gun implements Cloneable, Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Gun gun = (Gun) o;
         return price == gun.price &&
                 damage == gun.damage &&
-                MTS == gun.MTS &&
-                Double.compare(gun.STR, STR) == 0 &&
+                mts == gun.mts &&
+                Double.compare(gun.str, str) == 0 &&
                 magCap == gun.magCap &&
                 isPistol == gun.isPistol &&
                 name.equals(gun.name) &&
@@ -163,6 +167,6 @@ public class Gun implements Cloneable, Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, damage, MTS, STR, magCap, gameSide, isPistol);
+        return Objects.hash(name, price, damage, mts, str, magCap, gameSide, isPistol);
     }
 }

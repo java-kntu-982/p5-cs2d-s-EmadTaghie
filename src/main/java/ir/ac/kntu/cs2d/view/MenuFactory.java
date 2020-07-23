@@ -33,7 +33,7 @@ public class MenuFactory {
             for (int i = 0; i < menuBuilder.getLabels().size(); i++){
                 final int k = i;
                 menuBuilder.getLabels().get(i).setOnMouseClicked(event -> {
-                    getClientController().AgentReq(k == 0 ? GameSide.CT : GameSide.TERROR);
+                    getClientController().agentReq(k == 0 ? GameSide.CT : GameSide.TERROR);
                     menuBuilder.changeMenu(startUp());
                 });
             }

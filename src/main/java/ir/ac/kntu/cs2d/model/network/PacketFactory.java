@@ -2,7 +2,6 @@ package ir.ac.kntu.cs2d.model.network;
 
 import ir.ac.kntu.cs2d.model.GameSide;
 import ir.ac.kntu.cs2d.model.Gamer;
-import ir.ac.kntu.cs2d.model.person.Person;
 
 import java.io.Serializable;
 

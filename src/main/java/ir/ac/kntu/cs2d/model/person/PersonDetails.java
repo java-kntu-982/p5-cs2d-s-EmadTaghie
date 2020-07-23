@@ -13,11 +13,11 @@ public abstract class PersonDetails implements Serializable, Cloneable {
     private Gun mainWeapon;
     private Gun currGun;
 
-    private int Health;
+    private int health;
     private int money;
     private Point2D loc;
     private GameSide gameSide;
-    private int DeathPoint;
+    private int deathPoint;
     private int killPoint;
     private final double speed;
 
@@ -67,11 +67,11 @@ public abstract class PersonDetails implements Serializable, Cloneable {
     }
 
     public int getHealth() {
-        return Health;
+        return health;
     }
 
     public void setHealth(int health) {
-        Health = health;
+        this.health = health;
     }
 
     public int getMoney() {
@@ -99,11 +99,11 @@ public abstract class PersonDetails implements Serializable, Cloneable {
     }
 
     public int getDeathPoint() {
-        return DeathPoint;
+        return deathPoint;
     }
 
     public void setDeathPoint(int deathPoint) {
-        DeathPoint = deathPoint;
+        this.deathPoint = deathPoint;
     }
 
     public int getKillPoint() {
@@ -131,23 +131,27 @@ public abstract class PersonDetails implements Serializable, Cloneable {
         return "pistol: " + pistol +
                 ", mainWeapon: " + mainWeapon +
                 ", currGun: " + currGun +
-                ", Health: " + Health +
+                ", Health: " + health +
                 ", money: " + money +
                 ", loc: " + loc +
                 ", gameSide: " + gameSide +
-                ", DeathPoint: " + DeathPoint +
+                ", DeathPoint: " + deathPoint +
                 ", killPoint: " + killPoint +
                 ", speed: " + speed;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         PersonDetails that = (PersonDetails) o;
-        return Health == that.Health &&
+        return health == that.health &&
                 money == that.money &&
-                DeathPoint == that.DeathPoint &&
+                deathPoint == that.deathPoint &&
                 killPoint == that.killPoint &&
                 Double.compare(that.speed, speed) == 0 &&
                 Objects.equals(pistol, that.pistol) &&
@@ -159,7 +163,7 @@ public abstract class PersonDetails implements Serializable, Cloneable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(pistol, mainWeapon, currGun, Health, money, loc, gameSide, DeathPoint, killPoint, speed);
+        return Objects.hash(pistol, mainWeapon, currGun, health, money, loc, gameSide, deathPoint, killPoint, speed);
     }
 
     @Override

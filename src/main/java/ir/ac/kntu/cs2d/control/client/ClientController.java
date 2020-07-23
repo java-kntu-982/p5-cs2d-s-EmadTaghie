@@ -9,8 +9,8 @@ import ir.ac.kntu.cs2d.model.network.client.ClientMain;
 import java.io.IOException;
 
 public class ClientController {
-    Gamer gamer;
-    ClientMain clientMain;
+    private Gamer gamer;
+    private ClientMain clientMain;
 
     public ClientController() {
         gamer = new Gamer(0);
@@ -21,7 +21,7 @@ public class ClientController {
         }
     }
 
-    public void AgentReq(GameSide gameSide) {
+    public void agentReq(GameSide gameSide) {
         getClientMain().sendPacket(PacketFactory.Packet.addAgentReq(gameSide, getGamer()));
         System.out.println("request sended");
     }
@@ -30,6 +30,9 @@ public class ClientController {
         switch (packetCoder.getProtocol()) {
             case ADD_AGENT_ACCEPTED:
                 getGamer().setAgent(((Gamer) packetCoder.getObj()[0]).getAgent());
+                break;
+            default:
+                break;
         }
     }
 

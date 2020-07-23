@@ -1,6 +1,7 @@
 package ir.ac.kntu.cs2d.model.armory.gun;
 
 import ir.ac.kntu.cs2d.model.NotEnoughMoneyException;
+import ir.ac.kntu.cs2d.model.armory.Vest;
 import ir.ac.kntu.cs2d.model.person.Person;
 
 public class BuyVest extends Vest implements BuyItem {

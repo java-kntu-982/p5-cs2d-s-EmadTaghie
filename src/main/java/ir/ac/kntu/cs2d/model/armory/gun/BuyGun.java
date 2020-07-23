@@ -13,6 +13,7 @@ public class BuyGun extends Gun implements BuyItem {
         if(person.getMoney() < getPrice()) {
             throw new NotEnoughMoneyException("Not Enough Money for buying " + getName());
         }
+
         if(!person.getGameSide().equals(getGameSide())){
             throw new TypeException("Change person side or gun");
         }
@@ -20,15 +21,13 @@ public class BuyGun extends Gun implements BuyItem {
         if (isPistol()) {
             try {
                 person.setPistol((Gun)super.clone());
-            }
-            catch (Exception e){
+            } catch (Exception e){
                 e.printStackTrace();
             }
         } else {
             try {
                 person.setMainWeapon((Gun)super.clone());
-            }
-            catch (Exception e){
+            } catch (Exception e){
                 e.printStackTrace();
             }
         }

@@ -18,8 +18,8 @@ public class Person extends PersonDetails implements Personality, Serializable, 
     // TODO
     @Override
     public void shooting(Person person, long shooterTimer) {
-        if(shooterTimer - getReloadTimer() > getCurrGun().getSTR()) {
-            if (shooterTimer - getShooterTimer() > getCurrGun().getMTS()) {
+        if(shooterTimer - getReloadTimer() > getCurrGun().getStr()) {
+            if (shooterTimer - getShooterTimer() > getCurrGun().getMts()) {
                 setShooterTimer(shooterTimer);
                 try {
                     person.getHit(getCurrGun().getDamage());
@@ -54,8 +54,12 @@ public class Person extends PersonDetails implements Personality, Serializable, 
         switch (choice) {
             case 1:
                 setCurrGun(getMainWeapon());
+                break;
             case 2:
                 setCurrGun(getPistol());
+                break;
+            default:
+                break;
         }
     }
 
@@ -90,9 +94,15 @@ public class Person extends PersonDetails implements Personality, Serializable, 
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         Person person = (Person) o;
         return shooterTimer == person.shooterTimer &&
                 reloadTimer == person.reloadTimer;

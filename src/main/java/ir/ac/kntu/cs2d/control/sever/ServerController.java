@@ -5,13 +5,11 @@ import ir.ac.kntu.cs2d.model.GameSide;
 import ir.ac.kntu.cs2d.model.Gamer;
 import ir.ac.kntu.cs2d.model.network.PacketCoder;
 import ir.ac.kntu.cs2d.model.network.PacketFactory;
-import ir.ac.kntu.cs2d.model.network.Protocol;
 import ir.ac.kntu.cs2d.model.network.server.ServerMain;
 import ir.ac.kntu.cs2d.model.person.Person;
 import ir.ac.kntu.cs2d.model.person.PersonFactory;
 import javafx.scene.image.Image;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -43,6 +41,8 @@ public class ServerController {
             case ADD_AGENT_REQ:
                 System.out.println("agent req");
                 addAgent(packetCoder.getObj());
+                break;
+            default:
                 break;
         }
     }

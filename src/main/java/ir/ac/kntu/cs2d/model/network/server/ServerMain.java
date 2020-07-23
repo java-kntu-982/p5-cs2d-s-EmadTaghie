@@ -1,7 +1,6 @@
 package ir.ac.kntu.cs2d.model.network.server;
 
 import ir.ac.kntu.cs2d.control.sever.ServerController;
-import ir.ac.kntu.cs2d.model.armory.gun.Gun;
 import ir.ac.kntu.cs2d.model.network.PacketCoder;
 
 import java.io.*;
@@ -15,11 +14,11 @@ public class ServerMain {
         serverMain.run();
     }
 
-    ServerSocket serverSocket;
-    ObjectInputStream objectInputStream;
-    ObjectOutputStream objectOutputStream;
-    Socket socket;
-    ServerController serverController;
+    private ServerSocket serverSocket;
+    private ObjectInputStream objectInputStream;
+    private ObjectOutputStream objectOutputStream;
+    private Socket socket;
+    private ServerController serverController;
 
     public ServerMain() throws IOException {
         setServerSocket(new ServerSocket(12000));

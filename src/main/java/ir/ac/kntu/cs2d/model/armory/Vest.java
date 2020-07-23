@@ -1,4 +1,4 @@
-package ir.ac.kntu.cs2d.model.armory.gun;
+package ir.ac.kntu.cs2d.model.armory;
 
 import java.util.Objects;
 
@@ -28,14 +28,18 @@ public class Vest implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Vest vest = (Vest) o;
         return health == vest.health &&
                 price == vest.price;

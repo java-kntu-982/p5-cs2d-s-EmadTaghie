@@ -1,9 +1,6 @@
 package ir.ac.kntu.cs2d.model.network.client;
 
 import ir.ac.kntu.cs2d.control.client.ClientController;
-import ir.ac.kntu.cs2d.model.armory.gun.Gun;
-import ir.ac.kntu.cs2d.model.armory.gun.mainWeapon.MainWeaponFactory;
-import ir.ac.kntu.cs2d.model.armory.gun.pistol.PistolFactory;
 import ir.ac.kntu.cs2d.model.network.PacketCoder;
 
 import java.io.*;

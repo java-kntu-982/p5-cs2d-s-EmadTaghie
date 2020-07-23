@@ -47,8 +47,12 @@ public class AgentManager {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         AgentManager that = (AgentManager) o;
         return Objects.equals(agents, that.agents);
     }

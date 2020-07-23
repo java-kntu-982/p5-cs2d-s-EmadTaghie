@@ -4,11 +4,7 @@ import ir.ac.kntu.cs2d.model.GameSide;
 import ir.ac.kntu.cs2d.model.person.Person;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.FileCacheImageInputStream;
-import javax.imageio.stream.ImageInputStream;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
